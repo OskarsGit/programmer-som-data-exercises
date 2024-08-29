@@ -69,4 +69,5 @@ let rec eval2 e (env : (string * int) list) : int =
         | "min" -> if i1 <= i2 then i1 else i2
         | "max" -> if i1 >= i2 then i1 else i2
         | "==" -> if i1 = i2 then 1 else 0
+        | _ -> failwith "unknown operator"
     | Prim _            -> failwith "unknown primitive";;
