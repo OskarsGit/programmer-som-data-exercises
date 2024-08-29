@@ -34,6 +34,7 @@ let e3 = Prim("+", Prim("*", Var "b", CstI 9), Var "a");;
 
 (* Evaluation within an environment *)
 
+//1.1 I here
 let rec eval e (env : (string * int) list) : int =
     match e with
     | CstI i            -> i
@@ -50,3 +51,22 @@ let e1v  = eval e1 env;;
 let e2v1 = eval e2 env;;
 let e2v2 = eval e2 [("a", 314)];;
 let e3v  = eval e3 env;;
+
+
+
+//1.1 III here
+let rec eval2 e (env : (string * int) list) : int =
+    match e with
+    | CstI i            -> i
+    | Var x             -> lookup env x 
+    | Prim(ope, e1, e2) -> 
+      let i1 = eval e1 env
+      let i2 = eval e2 env
+      match ope with 
+        | "+" -> i1 + i2
+        | "*" -> i1 * i2
+        | "-" -> i1 - i2
+        | "min" -> if i1 =< i2 then i1 else i2
+        | "max" -> if i1 >= i2 then i1 else i2
+        | "==" -> if i1 == i2 then 1 else 0
+    | Prim _            -> failwith "unknown primitive";;
