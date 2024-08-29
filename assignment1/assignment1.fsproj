@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Program.fs" />
+    <Compile Include="Intro2.fs" />
   </ItemGroup>
 
 </Project>

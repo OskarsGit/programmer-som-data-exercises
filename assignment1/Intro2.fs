@@ -42,9 +42,9 @@ let rec eval e (env : (string * int) list) : int =
     | Prim("+", e1, e2) -> eval e1 env + eval e2 env
     | Prim("*", e1, e2) -> eval e1 env * eval e2 env
     | Prim("-", e1, e2) -> eval e1 env - eval e2 env
-    | Prim("min", e1, e2) -> if e1 =< e2 then eval e1 env else eval e2 env
+    | Prim("min", e1, e2) -> if e1 <= e2 then eval e1 env else eval e2 env
     | Prim("max", e1, e2) -> if e1 >= e2 then eval e1 env else eval e2 env
-    | Prim("==", e1, e2) -> if e1 == e2 then 1 else 0
+    | Prim("==", e1, e2) -> if e1 = e2 then 1 else 0
     | Prim _            -> failwith "unknown primitive";;
 
 let e1v  = eval e1 env;;
@@ -66,7 +66,7 @@ let rec eval2 e (env : (string * int) list) : int =
         | "+" -> i1 + i2
         | "*" -> i1 * i2
         | "-" -> i1 - i2
-        | "min" -> if i1 =< i2 then i1 else i2
+        | "min" -> if i1 <= i2 then i1 else i2
         | "max" -> if i1 >= i2 then i1 else i2
-        | "==" -> if i1 == i2 then 1 else 0
+        | "==" -> if i1 = i2 then 1 else 0
     | Prim _            -> failwith "unknown primitive";;

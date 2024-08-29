@@ -1,43 +1,48 @@
 {
   "format": 1,
   "restore": {
-    "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj": {}
+    "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\assignment1.fsproj": {}
   },
   "projects": {
-    "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj": {
+    "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\assignment1.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
+        "projectUniqueName": "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\assignment1.fsproj",
         "projectName": "assignment1",
-        "projectPath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
-        "packagesPath": "/home/anti-droid/.nuget/packages/",
-        "outputPath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/obj/",
+        "projectPath": "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\assignment1.fsproj",
+        "packagesPath": "C:\\Users\\oskwe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/anti-droid/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\oskwe\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
-          "/nix/store/lf9fpgl87kfqv9cmqnr77sm72acds8x3-dotnet-sdk-8.0.101/sdk/8.0.101/FSharp/library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\8.0.201\\FSharp\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[8.0.101, )",
+              "version": "[8.0.200, )",
               "generatePathProperty": true
             }
           },
@@ -52,12 +57,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/lf9fpgl87kfqv9cmqnr77sm72acds8x3-dotnet-sdk-8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

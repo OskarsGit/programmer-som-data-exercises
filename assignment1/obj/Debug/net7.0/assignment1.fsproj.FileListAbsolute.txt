@@ -1,0 +1,5 @@
+C:\Users\oskwe\Documents\GitHub\programmer-som-data-exercises\assignment1\obj\Debug\net7.0\assignment1.fsproj.AssemblyReference.cache
+C:\Users\oskwe\Documents\GitHub\programmer-som-data-exercises\assignment1\obj\Debug\net7.0\assignment1.AssemblyInfoInputs.cache
+C:\Users\oskwe\Documents\GitHub\programmer-som-data-exercises\assignment1\obj\Debug\net7.0\assignment1.AssemblyInfo.fs
+C:\Users\oskwe\Documents\GitHub\programmer-som-data-exercises\assignment1\obj\Debug\net7.0\assignment1.fsproj.CoreCompileInputs.cache
+C:\Users\oskwe\Documents\GitHub\programmer-som-data-exercises\assignment1\obj\Debug\net7.0\assignment1.sourcelink.json

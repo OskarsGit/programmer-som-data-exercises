@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "UEcmgm5g2M8+A5b4T1P7fTpKwKnPYh07jC1bSUJeUm0o1N9HKuSf1+xeAtMZ5sfIs0dJMqijz/3HZbmpDuDDmA==",
+  "dgSpecHash": "R3Wn7524Sc1igFftlzl/OI/KpWUeh1Bu+LlUgpIpjCw7+kAoiFndzruSqVSKavBg6KevG7mXbjyXUobpeZRlkg==",
   "success": true,
-  "projectFilePath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
+  "projectFilePath": "C:\\Users\\oskwe\\Documents\\GitHub\\programmer-som-data-exercises\\assignment1\\assignment1.fsproj",
   "expectedPackageFiles": [
-    "/home/anti-droid/.nuget/packages/fsharp.core/8.0.101/fsharp.core.8.0.101.nupkg.sha512"
+    "C:\\Users\\oskwe\\.nuget\\packages\\fsharp.core\\8.0.200\\fsharp.core.8.0.200.nupkg.sha512",
+    "C:\\Users\\oskwe\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\oskwe\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\oskwe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\oskwe\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.16\\microsoft.netcore.app.host.win-x64.7.0.16.nupkg.sha512"
   ],
   "logs": []
 }
