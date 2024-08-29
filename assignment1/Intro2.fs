@@ -52,7 +52,10 @@ let e2v1 = eval e2 env;;
 let e2v2 = eval e2 [("a", 314)];;
 let e3v  = eval e3 env;;
 
-
+//1.1 II here
+eval (Prim("-", CstI(1), Prim("min", CstI(2), CstI(3)))) env
+eval (Prim("*", CstI(1), Prim("==", CstI(2), CstI(3)))) env
+eval (Prim("*", CstI(1), Prim("==", CstI(2), CstI(2)))) env
 
 //1.1 III here
 let rec eval2 e (env : (string * int) list) : int =
