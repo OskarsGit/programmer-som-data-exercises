@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UEcmgm5g2M8+A5b4T1P7fTpKwKnPYh07jC1bSUJeUm0o1N9HKuSf1+xeAtMZ5sfIs0dJMqijz/3HZbmpDuDDmA==",
+  "success": true,
+  "projectFilePath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
+  "expectedPackageFiles": [
+    "/home/anti-droid/.nuget/packages/fsharp.core/8.0.101/fsharp.core.8.0.101.nupkg.sha512"
+  ],
+  "logs": []
+}

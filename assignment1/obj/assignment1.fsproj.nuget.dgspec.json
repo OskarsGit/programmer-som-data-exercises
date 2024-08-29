@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj": {}
+  },
+  "projects": {
+    "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
+        "projectName": "assignment1",
+        "projectPath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/assignment1.fsproj",
+        "packagesPath": "/home/anti-droid/.nuget/packages/",
+        "outputPath": "/home/anti-droid/itu/prodat/material/Intro/assignment1/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/anti-droid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/nix/store/lf9fpgl87kfqv9cmqnr77sm72acds8x3-dotnet-sdk-8.0.101/sdk/8.0.101/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[8.0.101, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/nix/store/lf9fpgl87kfqv9cmqnr77sm72acds8x3-dotnet-sdk-8.0.101/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
