@@ -116,6 +116,9 @@ let rec simplify aexp =
     | Mul (CstI 1, n) -> simplify n
     | Mul (_, CstI 0) -> CstI 0
     | Mul (CstI 0, _) -> CstI 0
+    //| Add (n, m) -> Add(simplify n, simplify m)
+    //| Sub (n, m) -> Sub(simplify n, simplify m)
+    //| Mul (n, m) -> Mul(simplify n, simplify m)
     | e -> e 
 
 //1.2 V here
