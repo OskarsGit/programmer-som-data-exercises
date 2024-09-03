@@ -74,3 +74,6 @@ let rec eval2 e (env : (string * int) list) : int =
         | "==" -> if i1 = i2 then 1 else 0
         | _ -> failwith "unknown operator"
     | Prim _            -> failwith "unknown primitive";;
+
+//1.1 IV here
+let 
