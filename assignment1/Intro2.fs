@@ -76,3 +76,22 @@ let rec eval2 e (env : (string * int) list) : int =
     | Prim _            -> failwith "unknown primitive";;
 
 //1.1 IV here
+
+
+
+
+//1.2 I here
+
+type aexpr =
+    | CstI of int
+    | Var of string
+    | Add of aexpr * aexpr
+    | Mul of aexpr * aexpr
+    | Sub of aexpr * aexpr
+    
+//1.2 II here
+Sub(Var "v",Add (Var "w",Var "z")) // v-(w+z)
+Mul(CstI 2,Sub (Var "v",Add (Var "w",Var "z"))) // 2*(v-(w+z))
+Add(Var "x",Add (Var "y",Add(Var "z",Var "v"))) // x+y+z+v
+
+//1.2 III here
