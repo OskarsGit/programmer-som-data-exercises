@@ -1,0 +1,75 @@
+# Ignore build results
+/bin/
+//out/
+/obj/
+
+# Ignore Visual Studio specific files
+.vscode/
+/.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Rider / JetBrains specific files
+.idea/
+*.sln.iml
+
+# Ignore Paket specific files
+paket-files/
+.paket/
+paket.lock
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+# Uncomment if you have a separate `packages` directory for NuGet
+# **/packages/*
+
+# Ignore FAKE build results
+.fake/
+
+# Ignore build logs and IDE logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.obj
+*.exe
+*.dll
+*.pdb
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore F# Interactive and REPL files
+.fsx
+.fsi
+.fsx~
+
+# Ignore tooling config files
+*.ide.*
+.idea/
+
+# Ignore other editors
+*.vs/
+*.suo
+*.user
+
+# Ignore dependencies and lock files
+project.lock.json
+project.fragment.lock.json
+
+# Ignore code coverage and test results
+TestResults/
+*.coverage
+*.coveragexml
+*.coverage.json
+
+# Ignore tooling generated files
+tools/
+
