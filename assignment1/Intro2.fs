@@ -97,3 +97,34 @@ Mul(CstI 2,Sub (Var "v",Add (Var "w",Var "z"))) // 2*(v-(w+z))
 Add(Var "x",Add (Var "y",Add(Var "z",Var "v"))) // x+y+z+v
 
 //1.2 III here
+let rec fmt aexp =
+    match aexp with
+    | CstI n -> string n
+    | Var v -> v
+    | Add (n,m) -> "(" + (fmt n) + "+" + (fmt m) + ")"
+    | Mul (n,m) -> "(" + (fmt n) + "*" + (fmt m) + ")"
+    | Sub (n,m) -> "(" + (fmt n) + "-" + (fmt m) + ")"
+    
+//1.2 IV here
+let rec simplify aexp =
+    match aexp with
+    | Add (CstI 0, n) -> simplify n
+    | Add (n, CstI 0) -> simplify n
+    | Sub (n, CstI 0) -> simplify n
+    | Sub (n, m) when n = m -> CstI 0
+    | Mul (n, CstI 1) -> simplify n
+    | Mul (CstI 1, n) -> simplify n
+    | Mul (_, CstI 0) -> CstI 0
+    | Mul (CstI 0, _) -> CstI 0
+    | e -> e 
+
+//1.2 V here
+let rec diff aexp v = //diff aexp according to v
+    match aexp with
+    | CstI _ -> CstI 0
+    | Var v' when v = v'-> CstI 1
+    | Var _ -> CstI 0
+    | Add (n,m) -> Add (diff n v,diff m v)
+    | Sub (n,m) -> Sub (diff n v,diff m v)
+    | Mul (n,m) -> Add (Mul (diff n v,m),Mul (n,diff m v))
+    
