@@ -1,7 +1,7 @@
 # Ignore build results
-/bin/
-//out/
-/obj/
+**/bin/i
+**//out/
+**/obj/
 
 # Ignore Visual Studio specific files
 .vscode/
@@ -12,7 +12,7 @@
 *.sln.docstates
 
 # Ignore Rider / JetBrains specific files
-.idea/
+../.idea/
 *.sln.iml
 
 # Ignore Paket specific files
