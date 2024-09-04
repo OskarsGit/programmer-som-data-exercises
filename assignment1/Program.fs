@@ -17,6 +17,7 @@ let main argv =
     printfn "%s" (fmt (simplify (Mul (Add (CstI 0, CstI 1),Sub (CstI 0, Var "y")))))
     *)
     printfn "%A" (run (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))))
-    
-    
+    printfn "%A" (freevars (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))))
+    printfn "%A" (freevars (Let([("y", Prim("+", Var "x",CstI 3)); ("z", Prim("+",Var "y", Var "x"))], Prim("+", Var "x",CstI 3))))
+
     0

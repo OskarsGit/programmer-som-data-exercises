@@ -205,10 +205,9 @@ let rec freevars e : string list =
     match e with
     | CstI i -> []
     | Var x  -> [x]
-    | Let((x, erhs)::[], ebody) -> //basically unchanged: this means x=exp1 in exp2
-          union (freevars erhs, minus (freevars ebody, [x])) //this means {vars in exp1} U {vars in exp2}/x
-    | Let((x, erhs)::xs, ebody) -> //this means x1=exp1,.., xn=expn in expb
-          union (freevars erhs, minus (freevars ebody, [x])) //this means ({vars in exp1} U..U {expn} U {vars in expb})/{x1..xn}
+    | Let([], ebody) -> freevars ebody
+    | Let((x, erhs)::xs, ebody) -> //continuation or acc would work, just remove everything in the end, but so does just creaing a prim on both expressions, seeing as prim just unions them
+          minus (freevars (Let(xs,Prim ("+", ebody, erhs))), [x])
     | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
 
 (* Alternative definition of closed 
