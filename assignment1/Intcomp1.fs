@@ -10,25 +10,25 @@ module Intcomp1
 type expr = 
   | CstI of int
   | Var of string
-  | Let of string * expr * expr
+  | Let of (string * expr) list * expr
   | Prim of string * expr * expr;;
 
 (* Some closed expressions: *)
 
-let e1 = Let("z", CstI 17, Prim("+", Var "z", Var "z"));;
+let e1 = Let (["z", CstI 17], Prim("+", Var "z", Var "z"));;
 
-let e2 = Let("z", CstI 17, 
-             Prim("+", Let("z", CstI 22, Prim("*", CstI 100, Var "z")),
+let e2 = Let(["z", CstI 17], 
+             Prim("+", Let(["z", CstI 22], Prim("*", CstI 100, Var "z")),
                        Var "z"));;
 
-let e3 = Let("z", Prim("-", CstI 5, CstI 4), 
+let e3 = Let(["z", Prim("-", CstI 5, CstI 4)], 
              Prim("*", CstI 100, Var "z"));;
 
-let e4 = Prim("+", Prim("+", CstI 20, Let("z", CstI 17, 
+let e4 = Prim("+", Prim("+", CstI 20, Let(["z", CstI 17], 
                                           Prim("+", Var "z", CstI 2))),
                    CstI 30);;
 
-let e5 = Prim("*", CstI 2, Let("x", CstI 3, Prim("+", Var "x", CstI 4)));;
+let e5 = Prim("*", CstI 2, Let(["x", CstI 3], Prim("+", Var "x", CstI 4)));;
 
 (* ---------------------------------------------------------------------- *)
 
@@ -38,15 +38,16 @@ let rec lookup env x =
     match env with 
     | []        -> failwith (x + " not found")
     | (y, v)::r -> if x=y then v else lookup r x;;
-
+// 2.1 here
 let rec eval e (env : (string * int) list) : int =
     match e with
     | CstI i            -> i
-    | Var x             -> lookup env x 
-    | Let(x, erhs, ebody) -> 
+    | Var x             -> lookup env x
+    | Let([],ebody)     -> eval ebody env
+    | Let((x, erhs)::xs, ebody) -> 
       let xval = eval erhs env
-      let env1 = (x, xval) :: env 
-      eval ebody env1
+      let env1 = (x, xval) :: env
+      eval (Let (xs,ebody)) env1 
     | Prim("+", e1, e2) -> eval e1 env + eval e2 env
     | Prim("*", e1, e2) -> eval e1 env * eval e2 env
     | Prim("-", e1, e2) -> eval e1 env - eval e2 env
@@ -66,7 +67,7 @@ let rec mem x vs =
     | v :: vr -> x=v || mem x vr;;
 
 (* Checking whether an expression is closed.  The vs is 
-   a list of the bound variables.  *)
+   a list of the bound variables.  
 
 let rec closedin (e : expr) (vs : string list) : bool =
     match e with
@@ -182,7 +183,7 @@ let e9s1a = subst e9 [("y", Var "z")];;
    one could use binary trees, hashtables or splaytrees for
    efficiency.  *)
 
-(* union(xs, ys) is the set of all elements in xs or ys, without duplicates *)
+(* union(xs, ys) is the set of all elements in xs or ys, without duplicates *)*)
 
 let rec union (xs, ys) = 
     match xs with 
@@ -199,16 +200,18 @@ let rec minus (xs, ys) =
                else x :: minus (xr, ys);;
 
 (* Find all variables that occur free in expression e *)
-
+// attempt at 2.2
 let rec freevars e : string list =
     match e with
     | CstI i -> []
     | Var x  -> [x]
-    | Let(x, erhs, ebody) -> 
-          union (freevars erhs, minus (freevars ebody, [x]))
+    | Let((x, erhs)::[], ebody) -> //basically unchanged: this means x=exp1 in exp2
+          union (freevars erhs, minus (freevars ebody, [x])) //this means {vars in exp1} U {vars in exp2}/x
+    | Let((x, erhs)::xs, ebody) -> //this means x1=exp1,.., xn=expn in expb
+          union (freevars erhs, minus (freevars ebody, [x])) //this means ({vars in exp1} U..U {expn} U {vars in expb})/{x1..xn}
     | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
 
-(* Alternative definition of closed *)
+(* Alternative definition of closed 
 
 let closed2 e = (freevars e = []);;
 
@@ -370,3 +373,4 @@ let intsToFile (inss : int list) (fname : string) =
     System.IO.File.WriteAllText(fname, text);;
 
 (* -----------------------------------------------------------------  *)
+*)
