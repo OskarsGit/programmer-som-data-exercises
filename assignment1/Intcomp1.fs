@@ -241,7 +241,7 @@ let rec tcomp (e : expr) (cenv : string list) : texpr =
     | CstI i -> TCstI i
     | Var x  -> TVar (getindex cenv x)
     | Let ([],ebody) -> tcomp ebody cenv
-    | Let((x, erhs)::xs, ebody) -> 
+    | Let((x, erhs)::xs, ebody) -> //missing handeling of xs, problem: don't know how to eval of xs to cenv1, this is needed othervise the variable doesn't exist in the context
         let cenv1 = x :: cenv 
         TLet(tcomp erhs cenv, tcomp ebody cenv1)
     | Prim(ope, e1, e2) -> TPrim(ope, tcomp e1 cenv, tcomp e2 cenv);;
