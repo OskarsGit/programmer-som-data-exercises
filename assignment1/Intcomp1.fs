@@ -210,7 +210,7 @@ let rec freevars e : string list =
           minus (freevars (Let(xs,Prim ("+", ebody, erhs))), [x])
     | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
 
-(* Alternative definition of closed 
+(* Alternative definition of closed *)
 
 let closed2 e = (freevars e = []);;
 
@@ -235,14 +235,15 @@ let rec getindex vs x =
     | y::yr -> if x=y then 0 else 1 + getindex yr x;;
 
 (* Compiling from expr to texpr *)
-
+//2.3 here
 let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with
     | CstI i -> TCstI i
     | Var x  -> TVar (getindex cenv x)
-    | Let(x, erhs, ebody) -> 
-      let cenv1 = x :: cenv 
-      TLet(tcomp erhs cenv, tcomp ebody cenv1)
+    | Let ([],ebody) -> tcomp ebody cenv
+    | Let((x, erhs)::xs, ebody) -> 
+        let cenv1 = x :: cenv 
+        TLet(tcomp erhs cenv, tcomp ebody cenv1)
     | Prim(ope, e1, e2) -> TPrim(ope, tcomp e1 cenv, tcomp e2 cenv);;
 
 (* Evaluation of target expressions with variable indexes.  The
@@ -261,7 +262,7 @@ let rec teval (e : texpr) (renv : int list) : int =
     | TPrim("-", e1, e2) -> teval e1 renv - teval e2 renv
     | TPrim _            -> failwith "unknown primitive";;
 
-(* Correctness: eval e []  equals  teval (tcomp e []) [] *)
+(* Correctness: eval e []  equals  teval (tcomp e []) [] 
 
 
 (* ---------------------------------------------------------------------- *)

@@ -19,5 +19,11 @@ let main argv =
     printfn "%A" (run (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))))
     printfn "%A" (freevars (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))))
     printfn "%A" (freevars (Let([("y", Prim("+", Var "x",CstI 3)); ("z", Prim("+",Var "y", Var "x"))], Prim("+", Var "x",CstI 3))))
-
+    printfn "%A" (teval (tcomp (Let([("x1", CstI 3)], Prim("+", Var "x1", Var "x2"))) ["x2"]) [2])
+    printfn "%A" (teval (tcomp (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))) [] ) [])
+    
+    
+    
+    
+    
     0
