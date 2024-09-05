@@ -29,7 +29,7 @@ public class Main{
             System.out.println(e);
         }
 
-        Expr e5 = new Mul(new CstI(6), new CstI(0));
+        Expr e5 = new Sub(new CstI(6), new CstI(6));
         System.out.println(simplify(e5).toString());
     }
     public static Expr simplify(Expr expr){
@@ -46,11 +46,12 @@ public class Main{
             }
         }
         else if (expr instanceof Sub){
-            //not sure this equality works?
-            if (((Sub)expr).expr1 == ((Sub)expr).expr2){
-                return new CstI(0);
+            if (((Sub)expr).expr1 instanceof CstI && ((Sub)expr).expr2 instanceof CstI){
+                if (((CstI)((Sub)expr).expr2).value == ((CstI)((Sub)expr).expr1).value){
+                    return new CstI(0);
+                }
             }
-            else if (((Sub)expr).expr2 instanceof CstI){
+            if (((Sub)expr).expr2 instanceof CstI){
                 if (((CstI)((Sub)expr).expr2).value == 0){
                     return simplify(((Sub)expr).expr1);
                 }
