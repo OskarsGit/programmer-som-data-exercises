@@ -20,11 +20,11 @@ let main argv =
     printfn "%A" (freevars (Let([("x1", CstI 3); ("x2", CstI 4)], Prim("+", Var "x1", Var "x2"))))
     printfn "%A" (freevars (Let([("y", Prim("+", Var "x",CstI 3)); ("z", Prim("+",Var "y", Var "x"))], Prim("+", Var "x",CstI 3))))
     printf "test of tcomp: "
-    printfn "%A" (teval (tcomp2 (Let([("x1", CstI 3)], Prim("+", Var "x1", Var "x2"))) ["x2"]) [2])
+    printfn "%A" (teval (tcomp (Let([("x1", CstI 3)], Prim("+", Var "x1", Var "x2"))) ["x2"]) [2])
     printf "test with two lets and things in env: "
-    printfn "%A" (teval (tcomp2 (Let([("x1", CstI 3); ("x2", CstI 4)], Prim ("*", Var "x3", Prim("+", Var "x1", Var "x2")))) ["x3"] ) [2])
+    printfn "%A" (teval (tcomp (Let([("x1", CstI 3); ("x2", CstI 4)], Prim ("*", Var "x3", Prim("+", Var "x1", Var "x2")))) ["x3"] ) [2])
     printf "test with more than 2 lets and none in env: "
-    printfn "%A" (teval (tcomp2 (Let([("x1", CstI 3); ("x2", CstI 4); ("x3", CstI 4)], Prim ("*", Var "x3", Prim("+", Var "x1", Var "x2")))) [] ) [])
+    printfn "%A" (teval (tcomp (Let([("x1", CstI 3); ("x2", CstI 4); ("x3", CstI 4)], Prim ("*", Var "x3", Prim("+", Var "x1", Var "x2")))) [] ) [])
     
     
     
