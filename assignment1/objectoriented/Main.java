@@ -28,6 +28,53 @@ public class Main{
         catch (Exception e){
             System.out.println(e);
         }
+
+        Expr e5 = new Mul(new CstI(6), new CstI(0));
+        System.out.println(simplify(e5).toString());
+    }
+    public static Expr simplify(Expr expr){
+        if (expr instanceof Add){
+            if (((Add)expr).expr1 instanceof CstI){
+                if (((CstI)((Add)expr).expr1).value == 0){
+                    return simplify(((Add)expr).expr2);
+                }
+            }
+            else if (((Add)expr).expr2 instanceof CstI){
+                if (((CstI)((Add)expr).expr2).value == 0){
+                    return simplify(((Add)expr).expr1);
+                }
+            }
+        }
+        else if (expr instanceof Sub){
+            //not sure this equality works?
+            if (((Sub)expr).expr1 == ((Sub)expr).expr2){
+                return new CstI(0);
+            }
+            else if (((Sub)expr).expr2 instanceof CstI){
+                if (((CstI)((Sub)expr).expr2).value == 0){
+                    return simplify(((Sub)expr).expr1);
+                }
+            }
+        }
+        else if (expr instanceof Mul){
+            if (((Mul)expr).expr1 instanceof CstI){
+                if (((CstI)((Mul)expr).expr1).value == 1){
+                    return simplify(((Mul)expr).expr2);
+                }
+                else if (((CstI)((Mul)expr).expr1).value == 0){
+                    return new CstI(0);
+                }
+            }
+            if (((Mul)expr).expr2 instanceof CstI){
+                if (((CstI)((Mul)expr).expr2).value == 1){
+                    return simplify(((Mul)expr).expr1);
+                }
+                else if (((CstI)((Mul)expr).expr2).value == 0){
+                    return new CstI(0);
+                }
+            }
+        }
+        return expr;
     }
 }
 //not very pretty
