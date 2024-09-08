@@ -1,5 +1,5 @@
 # Ignore build results
-**/bin/i
+**/bin/
 **//out/
 **/obj/
 

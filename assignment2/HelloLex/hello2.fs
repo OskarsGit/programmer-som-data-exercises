@@ -36,4 +36,14 @@ and Tokenize  lexbuf =
           )
   | _ -> failwith "Tokenize"
 
+[<EntryPoint>]
+let main argv =
+      printfn "Hello World from FsLex!\n\nPlease pass a digit:"
+      let input = Console.ReadLine()
+      let res=Tokenize (LexBuffer<char>.FromString input)
+      printfn "The lexer recognizes %s" res
+      0
+
+
 # 3000000 "HelloLex/hello2.fs"
+
