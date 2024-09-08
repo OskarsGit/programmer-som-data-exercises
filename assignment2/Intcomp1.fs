@@ -344,7 +344,20 @@ let rec seval (inss : sinstr list) (stack : int list) =
     | (SPop    :: insr,    _ :: stkr) -> seval insr stkr
     | (SSwap   :: insr, i2::i1::stkr) -> seval insr (i1::i2::stkr)
     | _ -> failwith "seval: too few operands on stack";;
+//    SCST = 0, SVAR = 1, SADD = 2, SSUB = 3, SMUL = 4, SPOP = 5, SSWAP = 6;
 
+let sinstrToInt (instr:sinstr) : int list=
+    match instr with
+    | SCstI n   -> [0;n]
+    | SVar n    -> [1;n] 
+    | SAdd      -> [2]
+    | SSub      -> [3]
+    | SMul      -> [4]
+    | SPop      -> [5]
+    | SSwap     -> [6]
+
+let assemble (instrs:sinstr list) :int list =
+    List.foldBack (fun instr acc -> List.append (instr |> sinstrToInt) acc) instrs [] 
 
 (* A compile-time variable environment representing the state of
    the run-time stack. *)
@@ -359,7 +372,7 @@ let rec scomp (e : expr) (cenv : stackvalue list) : sinstr list =
     match e with
     | CstI i -> [SCstI i]
     | Var x  -> [SVar (getindex cenv (Bound x))]
-    | Let(x, erhs, ebody) -> 
+    | Let([x, erhs], ebody) -> 
           scomp erhs cenv @ scomp ebody (Bound x :: cenv) @ [SSwap; SPop]
     | Prim("+", e1, e2) -> 
           scomp e1 cenv @ scomp e2 (Value :: cenv) @ [SAdd] 
@@ -374,11 +387,10 @@ let s2 = scomp e2 [];;
 let s3 = scomp e3 [];;
 let s5 = scomp e5 [];;
 
-(* Output the integers in list inss to the text file called fname: *)
+(* Output the integers in list inss to the text file called fname: *) 
 
 let intsToFile (inss : int list) (fname : string) = 
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
 
 (* -----------------------------------------------------------------  *)
-*)

@@ -15,17 +15,26 @@
 
    This is a Java program but might be written in C instead; it does
    not rely on object-orientation or garbage collection.  */
+import java.util.*;
+import java.io.*;
 
 class Machine {
   final static int 
     SCST = 0, SVAR = 1, SADD = 2, SSUB = 3, SMUL = 4, SPOP = 5, SSWAP = 6;
   
   public static void main(String[] args) {
-    final int[] rpn1 = { SCST, 17, SVAR, 0, SVAR, 1, SADD, SSWAP, SPOP };
-    System.out.println(seval(rpn1));
-    final int[] rpn2 = { SCST, 17, SCST, 22, SCST, 100, SVAR, 1, SMUL, 
-			 SSWAP, SPOP, SVAR, 1, SADD, SSWAP, SPOP };
-    System.out.println(seval(rpn2));
+    File file = new File(args[0]);
+    List<Integer> o = new ArrayList<>();
+    try {
+        Scanner sc = new Scanner(file);
+        while (sc.hasNextInt()){
+            o.add(sc.nextInt());
+        }
+    } catch (Exception e){
+    throw new RuntimeException();
+    }
+    int[] intArray = o.stream().mapToInt(Integer::intValue).toArray();
+    System.out.println(seval(intArray));
   }
 
   static int seval(int[] code) {

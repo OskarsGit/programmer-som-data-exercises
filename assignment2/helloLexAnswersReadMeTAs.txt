@@ -1,7 +1,7 @@
 Question 1:
 The only regex involved is ['0'-'9'], which recognizes a single(!) digit from 0-9. 
-_ is not really a regex, but simply an fsharp way of catching and notifying of any illegal input,
-ie. any input that is not a digit.
+_ is not a regex, but simply an fsharp way of catching any other input,
+in this case any input that is not a digit.
 
 Question 2:
 2.1: hello.fs (and an accompanying .fsi file)
