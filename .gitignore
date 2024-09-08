@@ -73,3 +73,6 @@ TestResults/
 # Ignore tooling generated files
 tools/
 
+
+# Ignore course page 
+ProgramsAsDataCodeE2024/
