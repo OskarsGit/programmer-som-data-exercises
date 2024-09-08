@@ -270,7 +270,7 @@ let rec teval (e : texpr) (renv : int list) : int =
     | TPrim _            -> failwith "unknown primitive";;
 
 
-(* Correctness: eval e []  equals  teval (tcomp e []) [] 
+(* Correctness: eval e []  equals  teval (tcomp e []) [] *)
 
 
 (* ---------------------------------------------------------------------- *)
@@ -281,12 +281,12 @@ let rec teval (e : texpr) (renv : int list) : int =
    Polish form is a list of stack machine instructions. *)
 
 type rinstr =
-  | RCstI of int
-  | RAdd 
-  | RSub
-  | RMul 
-  | RDup
-  | RSwap;;
+  | RCstI of int //0
+  | RAdd //2
+  | RSub //0
+  | RMul //0
+  | RDup //0
+  | RSwap;; //0
 
 (* A simple stack machine for evaluation of variable-free expressions
    in postfix form *)
