@@ -1,6 +1,6 @@
 The HelloLex exercises are completed in the HelloLex folder.
 Exercise 2.4 and 2.5 are completed in Intcomp1.fs and Machine.java.
-Text answers to exercises are given below, with the NFA/DFA for 3.2 in nfa.jpg and dfa.jpg 
+Text answers to exercises are given below, with the NFA/DFA for 3.2 in NFA.jpg and DFA.jpg 
 Disregard all other files, thanks!
 
 Question 1:
