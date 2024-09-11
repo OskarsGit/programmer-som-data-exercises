@@ -22,6 +22,7 @@ class Machine {
   final static int 
     SCST = 0, SVAR = 1, SADD = 2, SSUB = 3, SMUL = 4, SPOP = 5, SSWAP = 6;
   
+//Exercise 2.5 below, just changed it to read a .txt file
   public static void main(String[] args) {
     File file = new File(args[0]);
     List<Integer> o = new ArrayList<>();

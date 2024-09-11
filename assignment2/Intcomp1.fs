@@ -346,6 +346,8 @@ let rec seval (inss : sinstr list) (stack : int list) =
     | _ -> failwith "seval: too few operands on stack";;
 //    SCST = 0, SVAR = 1, SADD = 2, SSUB = 3, SMUL = 4, SPOP = 5, SSWAP = 6;
 
+
+//Exercise 2.4 below
 let sinstrToInt (instr:sinstr) : int list=
     match instr with
     | SCstI n   -> [0;n]
