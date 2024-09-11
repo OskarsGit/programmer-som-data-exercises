@@ -22,3 +22,8 @@ NOTE:
 When creating hello2 and hello3, we had to manually copy paste the main function,
 so that it would actually do a Console.ReadLine. We are unsure of why this was not created
 when creating the .fs files from the .fsl files, as it was when creating the first hello.fs file.
+
+
+3.2 
+regex: (a)?(?:b(a)?)*
+
