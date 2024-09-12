@@ -1,5 +1,7 @@
 #!/bin/bash
 
-read input
+echo Write \'open Parse\;\;\' in the interactive mode
 
-dotnet fsi -r ../../fsharp/FsLexYacc.Runtime.11.3.0/lib/netstandard2.0/FsLexYacc.Runtime.dll $input
+sleep 1
+
+dotnet fsi -r ../../fsharp/FsLexYacc.Runtime.11.3.0/lib/netstandard2.0/FsLexYacc.Runtime.dll Absyn.fs ExprPar.fs ExprLex.fs Parse.fs
