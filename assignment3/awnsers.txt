@@ -1,7 +1,7 @@
 Assignment 3.3
 
 main ->
-Expr EOF-> ?
+Expr EOF-> A
 LET NAME EQ Expr IN Expr END EOF->F
 LET NAME EQ Expr IN Expr TIMES Expr END EOF-> G
 LET NAME EQ Expr IN Expr TIMES 3 END EOF-> C
