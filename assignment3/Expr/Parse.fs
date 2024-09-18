@@ -8,6 +8,8 @@ open System.IO
 open System.Text
 open FSharp.Text.Lexing
 open Absyn
+open ExprPar
+open ExprLex
 
 (* Plain parsing from a string, with poor error reporting *)
 
