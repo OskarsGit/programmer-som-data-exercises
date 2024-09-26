@@ -59,7 +59,7 @@ let rec eval (e : expr) (env : value env) : int =
       let fClosure = lookup env f
       match fClosure with
       | Closure (f, xs, fBody, fDeclEnv) ->
-        let xVallist = List.fold (fun acc e -> Int(eval e env)::acc) [] eArgs
+        let xVallist = List.foldBack (fun e acc -> Int(eval e env)::acc) eArgs [] 
         let ziplist = List.zip xs xVallist
         let fBodyEnv = List.append ziplist ((f, fClosure) :: fDeclEnv)
         eval fBody fBodyEnv
