@@ -14,3 +14,5 @@ let e423 = fromString "let treer n = (if n = 0 then 1 else  3 * (treer (n - 1)))
 let e424 = fromString "let pow8 n = n*n*n*n*n*n*n*n in 
         let powsum n = pow8 n + if (n=0) then 0 else (powsum (n-1)) in 
         powsum 10 end end";;
+
+let e44 = fromString "let pow n m = (if n = 0 then 1 else m * (pow (n - 1))) in pow 4 2 end"
