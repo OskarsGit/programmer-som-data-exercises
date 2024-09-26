@@ -16,3 +16,5 @@ let e424 = fromString "let pow8 n = n*n*n*n*n*n*n*n in
         powsum 10 end end";;
 
 let e44 = fromString "let pow n m = (if n = 0 then 1 else m * (pow (n - 1))) in pow 4 2 end"
+
+let e45 = fromString "if 2 = 2 && 3 = 3 then 1 else 2"
