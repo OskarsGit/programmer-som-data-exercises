@@ -68,7 +68,8 @@ let rec eval (e : expr) (env : value env) : value =
         in eval fBody fBodyEnv
       | _ -> failwith "eval Call: not a function"
     | Fun(var, fBody) ->  
-      Clos(var, fBody, env)
+      let bodyEnv = (var,Clos(var, fBody, env)) :: env 
+      eval fBody bodyEnv
 
 (* Evaluate in empty environment: program must have no free variables: *)
 
