@@ -1,6 +1,5 @@
-5.1
+module answers
 
-A)
 let rec merge xs ys =  
     match xs, ys with 
     | [], [] -> []
