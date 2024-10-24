@@ -8,7 +8,9 @@ void main(int n) {
   int printer;
   printer = 0;
 
-  print arrsum(n, arr, &printer);
+  arrsum(n, arr, &printer);
+
+  print printer;
 }
 
 void arrsum(int n, int arr[], int *sump) {
