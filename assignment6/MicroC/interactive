@@ -1,0 +1,6 @@
+echo Write \'open Answers\;\;\' in the interactive mode
+
+sleep 1
+
+dotnet fsi -r ../../fsharp/FsLexYacc.Runtime.11.3.0/lib/netstandard2.0/FsLexYacc.Runtime.dll Util.fs Absyn.fs CPar.fs CLex.fs Parse.fs Interp.fs ParseAndRun.fs
+
