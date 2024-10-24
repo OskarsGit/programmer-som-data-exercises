@@ -195,9 +195,11 @@ and eval e locEnv gloEnv store : int * store =
       if i1<>0 then res else eval e2 locEnv gloEnv store1
     | Call(f, es) -> callfun f es locEnv gloEnv store 
     | PreInc acc -> let (loc, store1) = access acc locEnv gloEnv store
-                    (getSto store1 (loc + 1), store1) 
+                    let value = getSto store1 loc 
+                    (value, setSto store1 loc (value+1)) 
     | PreDec acc -> let (loc, store1) = access acc locEnv gloEnv store
-                    (getSto store1 (loc - 1), store1)
+                    let value = getSto store1 loc 
+                    (value, setSto store1 loc (value-1))
 
 and access acc locEnv gloEnv store : int * store = 
     match acc with 

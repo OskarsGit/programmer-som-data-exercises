@@ -1,8 +1,5 @@
 void main (int n){
-  int i;
-  i = n;
-
-  ++i;
+  ++n;
   print n;
   --n;
   print n;
