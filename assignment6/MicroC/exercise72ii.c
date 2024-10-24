@@ -1,5 +1,5 @@
 void main(int n) {
-    int[] arr[20];
+    int arr[20];
     int printer;
     printer = 0;
     squares(n, arr);
@@ -13,6 +13,7 @@ void squares(int n, int arr[]) {
     i = 0;
     while (i < n){
         arr[i] = i * i;
+        i = i + 1;
     }
 }
 
