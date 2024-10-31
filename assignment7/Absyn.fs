@@ -23,8 +23,10 @@ and expr =
   | Andalso of expr * expr           (* Sequential and              *)
   | Orelse of expr * expr            (* Sequential or               *)
   | Call of string * expr list       (* Function call f(...)        *)
+  //8.3 here
   | PreInc of access
   | PreDec of access
+  //8.5 here
   | Tern of expr * expr * expr    
                                                                    
 and access =                                                       
@@ -38,6 +40,7 @@ and stmt =
   | Expr of expr                     (* Expression statement   e;   *)
   | Return of expr option            (* Return from method          *)
   | Block of stmtordec list          (* Block: grouping and scope   *)
+  //8.6 here
   | Switch of expr * (expr * stmt) list
                                                                    
 and stmtordec =                                                    
