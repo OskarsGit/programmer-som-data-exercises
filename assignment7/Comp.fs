@@ -144,7 +144,7 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
       [RET (snd varEnv - 1)]
     | Return (Some e) -> 
       cExpr e varEnv funEnv @ [RET (snd varEnv)]
-    | Switch (e1, es) -> failwith "failed"
+    | Switch (e1, (ei, stmt1)::xs) -> cStmt (If((Prim2("==",e1, ei)), stmt1, (Switch(e1,xs)))) varEnv funEnv
 
 and cStmtOrDec stmtOrDec (varEnv : varEnv) (funEnv : funEnv) : varEnv * instr list = 
     match stmtOrDec with 
