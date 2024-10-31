@@ -104,8 +104,9 @@ StmtM:  /* No unbalanced if-else */
 ;
 
 Cases: 
-    Cases CASE Expr COLON Stmt    { ($3, $5)::$1 } 
-  | CASE Expr COLON Block          { ($2, $4)::[] }
+    Cases CASE Const COLON Stmt  { (CstI $3, $5)::$1 } 
+  | CASE Const COLON StmtM       { (CstI $2, $4)::[] }
+  | CASE Const COLON Block       { (CstI $2, $4)::[] }
     
 StmtU:
     IF LPAR Expr RPAR StmtM ELSE StmtU  { If($3, $5, $7)       }
