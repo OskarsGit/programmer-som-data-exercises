@@ -1,5 +1,5 @@
 LDARGS;
-Label (Lab "L2"; CALL (Lab "L2") (Lab "L1");
+CALL 1 (Lab "L1");
 STOP;
 Label (Lab "L1");INCSP 1;
 GETBP;

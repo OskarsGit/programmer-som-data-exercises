@@ -144,6 +144,8 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
       [RET (snd varEnv - 1)]
     | Return (Some e) -> 
       cExpr e varEnv funEnv @ [RET (snd varEnv)]
+  //exercise 8.6 "if it works it works"
+    | Switch (e1, (ei, stmt1)::[]) -> cStmt (If((Prim2("==",e1, ei)), stmt1, Block [])) varEnv funEnv
     | Switch (e1, (ei, stmt1)::xs) -> cStmt (If((Prim2("==",e1, ei)), stmt1, (Switch(e1,xs)))) varEnv funEnv
 
 and cStmtOrDec stmtOrDec (varEnv : varEnv) (funEnv : funEnv) : varEnv * instr list = 
@@ -207,8 +209,10 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
       @ cExpr e2 varEnv funEnv
       @ [GOTO labend; Label labtrue; CSTI 1; Label labend]
     | Call(f, es) -> callfun f es varEnv funEnv
+//8.3
     | PreInc acc -> cAccess acc varEnv funEnv @ [DUP; LDI; CSTI 1; ADD; STI]
     | PreDec acc -> cAccess acc varEnv funEnv @ [DUP; LDI; CSTI -1; ADD; STI]
+//8.5
     | Tern (e1,e2,e3) -> 
         let labelse = newLabel()
         let labend  = newLabel()
