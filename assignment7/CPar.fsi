@@ -38,6 +38,10 @@ type token =
   | RETURN
   | VOID
   | WHILE
+  | COLON
+  | QMARK
+  | SWITCH
+  | CASE
   | CSTSTRING of (string)
   | NAME of (string)
   | CSTINT of (int)
@@ -80,6 +84,10 @@ type tokenId =
     | TOKEN_RETURN
     | TOKEN_VOID
     | TOKEN_WHILE
+    | TOKEN_COLON
+    | TOKEN_QMARK
+    | TOKEN_SWITCH
+    | TOKEN_CASE
     | TOKEN_CSTSTRING
     | TOKEN_NAME
     | TOKEN_CSTINT
@@ -100,6 +108,7 @@ type nonTerminalId =
     | NONTERM_StmtOrDecSeq
     | NONTERM_Stmt
     | NONTERM_StmtM
+    | NONTERM_Cases
     | NONTERM_StmtU
     | NONTERM_Expr
     | NONTERM_ExprNotAccess

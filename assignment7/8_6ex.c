@@ -1,5 +1,7 @@
 void main(int n) { 
   switch (n) {
+    case 0:
+      { print 10; }
     case 1:
       { print 10; }
     case 2:
