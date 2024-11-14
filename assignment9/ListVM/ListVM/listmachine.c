@@ -473,7 +473,7 @@ void initheap() {
 void markPhase(word s[], word sp) {
   printf("marking ...\n");
   void mark(word* block){
-    Paint(*block, Black);
+    Paint(block[0], Black);
     if (!(IsInt(block[1]) || block[1] == 0))
       mark((word*)block[1]);
     if (!(IsInt(block[2]) || block[2] == 0))
@@ -489,14 +489,14 @@ void markPhase(word s[], word sp) {
 void sweepPhase() {
   printf("sweeping ...\n");
   for(int i=0; i<=HEAPSIZE ; i++){
-    switch (Color(heap[i])){ //blue we dont touch, gray we have not implimented
+    switch (Color((&heap[i])[0])){ //blue we dont touch, gray we have not implimented
       case White:
-        Paint(heap[i],Blue);
+        Paint((&heap[i])[0],Blue);
         (&heap[i])[1] = (word*)freelist;
         freelist = (word*)heap[i];
         break;
       case Black: 
-        Paint(heap[i],White);
+        Paint((&heap[i])[0],White);
         break;
     }
   }
