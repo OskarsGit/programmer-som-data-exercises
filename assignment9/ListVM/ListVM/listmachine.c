@@ -488,11 +488,11 @@ void markPhase(word s[], word sp) {
 
 void sweepPhase() {
   printf("sweeping ...\n");
-  for(int i=0; i<=HEAPSIZE ; i++){
+  for(int i=0; i<HEAPSIZE ; i+= Length(heap[i])){
     switch (Color((&heap[i])[0])){ //blue we dont touch, gray we have not implimented
       case White:
         Paint((&heap[i])[0],Blue);
-        (&heap[i])[1] = (word*)freelist;
+        (&(heap[i]))[1] = (word)freelist;
         freelist = (word*)heap[i];
         break;
       case Black: 
@@ -503,6 +503,7 @@ void sweepPhase() {
 }
 
 void collect(word s[], word sp) {
+  heapStatistics();
   markPhase(s, sp);
   heapStatistics();
   sweepPhase();
